@@ -2,9 +2,6 @@ package com.login.sistema_login.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-import lombok.Data;
-
-@Data
 public class PessoaDto {
 
     @NotBlank
