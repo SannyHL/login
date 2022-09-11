@@ -1,5 +1,7 @@
 package com.login.sistema_login.models;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
@@ -26,6 +28,8 @@ public class PessoaModel {
     private String senha;
     @Column (nullable = false)
     private String confirmaSenha;
+    @Column
+    private LocalDateTime horarioCadastro;
 
     
     
