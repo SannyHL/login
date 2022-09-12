@@ -16,13 +16,11 @@ public class PessoaModel {
 
     @Id
     @Column(nullable = false)
-    @CPF
     private String cpf;
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false)
-    @Email
-    private String email;
+    private String emailUsuario;
     @Column(nullable = false)
     private String senha;
     @Column (nullable = false)
