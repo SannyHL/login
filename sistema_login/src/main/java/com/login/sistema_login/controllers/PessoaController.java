@@ -26,7 +26,7 @@ import com.login.sistema_login.services.PessoaService;
 
 
 @Controller
-@RequestMapping(value = "/usuario")
+@RequestMapping("/usuario")
 public class PessoaController {
     @Autowired
     private PessoaService pessoaService;
@@ -40,8 +40,13 @@ public class PessoaController {
     public ResponseEntity<PessoaModel> cadastro(PessoaDto pessoaDto){
         var pessoaModel = new PessoaModel();
         BeanUtils.copyProperties(pessoaDto, pessoaModel);
-        pessoaModel.setHorarioCadastro(LocalDateTime.now(ZoneId.of("UTC-3")));
-        return new ResponseEntity<>(pessoaService.create(pessoaModel), HttpStatus.CREATED);
+        if(pessoaModel.getSenha().equals(pessoaModel.getConfirmaSenha())){
+            pessoaModel.setHorarioCadastro(LocalDateTime.now(ZoneId.of("UTC-3")));
+            return new ResponseEntity<>(pessoaService.create(pessoaModel), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        
     }
 
     @GetMapping("/")
