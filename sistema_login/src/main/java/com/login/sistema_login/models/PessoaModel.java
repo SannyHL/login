@@ -15,7 +15,6 @@ import lombok.Data;
 public class PessoaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     @CPF
     private String cpf;
