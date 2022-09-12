@@ -30,6 +30,8 @@ public class PessoaModel {
     private String confirmaSenha;
     @Column
     private LocalDateTime horarioCadastro;
+    @Column
+    private LocalDateTime horarioAtualizacaoCadastro;
 
     
     
