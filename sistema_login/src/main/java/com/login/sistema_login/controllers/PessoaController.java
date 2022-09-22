@@ -37,14 +37,15 @@ public class PessoaController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<PessoaModel> cadastro(PessoaDto pessoaDto){
+    public String cadastro(@Valid PessoaDto pessoaDto){
         var pessoaModel = new PessoaModel();
         BeanUtils.copyProperties(pessoaDto, pessoaModel);
         if(pessoaModel.getSenha().equals(pessoaModel.getConfirmaSenha())){
             pessoaModel.setHorarioCadastro(LocalDateTime.now(ZoneId.of("UTC-3")));
-            return new ResponseEntity<>(pessoaService.create(pessoaModel), HttpStatus.CREATED);
+            pessoaService.create(pessoaModel);
+            return "login";
         } else {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return "cadastro";
         }
         
     }
