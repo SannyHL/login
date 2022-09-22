@@ -10,7 +10,7 @@
 
 
 ### Descrição:
-Esse projeto tem como objetivo criar um sistema de realização de login.
+Esse projeto tem como objetivo criar um sistema de cadastro realização de login.
 
 ### **Razões para este projeto:**
 
