@@ -9,7 +9,7 @@ import com.login.sistema_login.models.PessoaModel;
 @Repository
 public interface PessoaRepository extends JpaRepository<PessoaModel, String>{
     
-    @Query(value="select * from usuarios where emailUsuario = :emailUsuario and senha = :senha", nativeQuery=true)
+    @Query(value="SELECT p FROM PessoaModel p where p.emailUsuario = :emailUsuario and p.senha = :senha")
     public PessoaModel Login(String emailUsuario, String senha);
     
 }
