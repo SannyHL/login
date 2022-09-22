@@ -1,7 +1,6 @@
 package com.login.sistema_login.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +17,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+
     @GetMapping("/")
     public String paglogin(){
         return "login";
@@ -26,9 +26,11 @@ public class LoginController {
     @PostMapping("/")
     public String logar(LoginModel loginModel, PessoaModel pessoaModel){
         PessoaModel pessoa = loginService.fazerLogin(pessoaModel.getEmailUsuario(), pessoaModel.getSenha());
-        if(pessoa != null){
-            return "usuarios";
+        if(pessoa != null ){
+            return "welcome";
+        } else{
+            return "login";
         }
-        return "login";
+        
     }
 }
