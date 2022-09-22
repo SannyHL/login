@@ -15,19 +15,14 @@ import lombok.Data;
 public class PessoaModel {
 
     @Id
-    @Column(nullable = false)
+    @CPF
     private String cpf;
-    @Column(nullable = false)
     private String nome;
-    @Column(nullable = false)
+    @Email
     private String emailUsuario;
-    @Column(nullable = false)
     private String senha;
-    @Column (nullable = false)
     private String confirmaSenha;
-    @Column
     private LocalDateTime horarioCadastro;
-    @Column
     private LocalDateTime horarioAtualizacaoCadastro;
 
     
